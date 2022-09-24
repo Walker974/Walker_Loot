@@ -1,0 +1,14 @@
+--- Tenezia Market Mission
+
+
+2 types de caisses :
+
+1 pour les orgas (table)  lundi/vendredi 22h00
+
+1 pour les gangs (table) mardi/jeudi 22h00
+
+
+dès qu'elle spawn -> notif de tous les joueurs qui ont le job (job1) et qui sont connectés
+
+alerte fdo (police) après 120s et si il la recup avant les gangs , elle disparait + envoyer notif aux gangs & orgas
+
