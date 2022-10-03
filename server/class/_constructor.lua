@@ -31,10 +31,10 @@ local missions = {}
 ---@param type string
 ---@param items table
 ---@param allowedJobs table
----@return void
+---@return number
 ---@public
 function _Tenezia_Market_Mission:createMission(type, items, allowedJobs)
-    if (not (items) or not (allowedJobs)) then
+    if (not (type) or not  (items) or not (allowedJobs)) then
         return
     end
     local id;
@@ -47,12 +47,24 @@ function _Tenezia_Market_Mission:createMission(type, items, allowedJobs)
     end
     local mission = _Tenezia_Market_Mission(id, type, items, allowedJobs)
     table.insert(missions, mission)
+    return (id)
 end
 
 ---@param id number
 ---@return void
 ---@public
-function _Tenezia_Market_Mission:DeleteMission(id)
+function _Tenezia_Market_Mission:deleteMission(id)
+    if (not (id) or (missions[id] == nil)) then
+        print("Mission ID is nil")
+        return
+    end
+    table.remove(missions, id)
+end
+
+---@param id number
+---@return table
+---@public
+function _Tenezia_Market_Mission:getMission(id)
     if (not (id)) then
         return
     end
@@ -60,5 +72,19 @@ function _Tenezia_Market_Mission:DeleteMission(id)
         print("Mission not found")
         return
     end
-    table.remove(missions, id)
+    return (missions[id])
+end
+
+---@return table
+---@public
+function _Tenezia_Market_Mission:getAllMissions()
+    return (missions)
+end
+
+
+---@return number
+---@public
+function _Tenezia_Market_Mission:getCurrentMissionId()
+    local id = #missions
+    return (id)
 end
