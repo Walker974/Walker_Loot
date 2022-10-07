@@ -9,6 +9,7 @@
 ---@param mission_id number
 ---@return void
 _Tenezia_Market_Mission_Server.Send_Orga_Notif_Begin = function(mission_id)
+    print('Send_Orga_Notif_Begin')
     if (not (mission_id)) then
         return
     end
@@ -16,6 +17,7 @@ _Tenezia_Market_Mission_Server.Send_Orga_Notif_Begin = function(mission_id)
     if (not (mission)) then
         return
     end
+    print('Send_Orga_Notif_Begin: mission')
     for _, orgas_players in pairs(_Tenezia_Market_Mission_Server.allowed_players.Orgas) do
         TriggerClientEvent('esx:showNotification', orgas_players, "On vient de lacher un largage !")
         -- TODO : Create Zone
