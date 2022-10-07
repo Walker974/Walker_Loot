@@ -6,31 +6,31 @@
 --]]
 ---@author Walker974
 
-local loop = false
-
 RegisterNetEvent('Tenezia_Market_Mission:CreateObject')
-AddEventHandler('Tenezia_Market_Mission:CreateObject', function(position, bool, id)
-    if (not (position) or (bool == nil) or not (id)) then
+AddEventHandler('Tenezia_Market_Mission:CreateObject', function(position, id, type)
+    if (not (position) or not (id) or not (type)) then
         print('Error: Missing arguments')
         return
     end
-    _Tenezia_Market_Mission_Client.BeginThread(position, bool, id)
+    _Tenezia_Market_Mission_Client.BeginThread(position, id, type)
 end)
 
-_Tenezia_Market_Mission_Client.BeginThread = function(pos, bool, id)
+_Tenezia_Market_Mission_Client.BeginThread = function(pos, id, type)
     CreateThread(function()
-        while (bool) do
+        while (true) do
             local timer = 850
             local player = PlayerPedId()
             local playerPos = GetEntityCoords(player)
-            local distance = #(playerPos - pos)
-            if (distance <= 1.5) then
+            local distance = #(playerPos - vector3(pos.x, pos.y, pos.z))
+            if (distance <= 10.5) then
                 timer = 5
                 ESX.ShowHelpNotification('Appuyez sur ~INPUT_CONTEXT~ pour récupérer la marchandise')
                 if (IsControlJustPressed(0, 38)) then
-
+                    TriggerServerEvent('Tenezia_Market_Mission:Mission:Success', id, type)
+                    break;
                 end
             end
+            Wait(timer)
         end
     end)
 end
