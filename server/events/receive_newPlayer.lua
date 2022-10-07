@@ -6,50 +6,36 @@
 --]]
 ---@author Walker974
 
-local continue = true
-local verify_fo = false
-
 RegisterNetEvent('Tenzia_marketmission:newPlayer')
 AddEventHandler('Tenzia_marketmission:newPlayer', function(id)
     if (not (id)) then
         return
     end
+    Wait(2000)
     local player = ESX.GetPlayerFromId(id)
-    if (not (player)) then
-        print('Player not found')
-        return
-    end
     --- Verify Orgas
     for _, v in pairs(_Tenezia_Market_Mission_Server.Mission.Orgas.Allowed) do
         if (player.job.name == v) then
             table.insert(_Tenezia_Market_Mission_Server.allowed_players.Orgas, id)
-            continue = false
             break
+            return;
         end
     end
     --- Verify Gangs
-    if (continue) then
-        for _, v in pairs(_Tenezia_Market_Mission_Server.Mission.Gangs.Allowed) do
-            if (player.job.name == v) then
-                table.insert(_Tenezia_Market_Mission_Server.allowed_players.Gangs, id)
-                continue = true
-                verify_fo = true
-                break
-            end
+    for _, v in pairs(_Tenezia_Market_Mission_Server.Mission.Gangs.Allowed) do
+        if (player.job.name == v) then
+            table.insert(_Tenezia_Market_Mission_Server.allowed_players.Gangs, id)
+            break
+            return
         end
     end
     --- Verify FO
-    if (verify_fo) then
-        for _, v in pairs(_Tenezia_Market_Mission.FO) do
-            if (player.job.name == v) then
-                table.insert(_Tenezia_Market_Mission_Server.allowed_players.FO, id)
-                continue = false
-                break
-            else
-                print('Player not allowed')
-                break
-            end
+    for _, v in pairs(_Tenezia_Market_Mission_Server.Mission.FO) do
+        print(v, player.job.name)
+        if (player.job.name == v) then
+            table.insert(_Tenezia_Market_Mission_Server.allowed_players.FO, id)
+            print(json.encode(_Tenezia_Market_Mission_Server.allowed_players))
+            break
         end
-        return
     end
 end)
