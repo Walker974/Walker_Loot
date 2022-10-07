@@ -9,13 +9,16 @@
 ---@param mission_id number
 ---@return void
 _Tenezia_Market_Mission_Server.Send_FO_Notif_Begin = function(mission_id)
+    print('cc1')
     if (not (mission_id)) then
         return
     end
     local mission = _Tenezia_Market_Mission:getMission(mission_id)
+    print('cc2')
     if (not (mission)) then
         return
     end
+    print('oui')
     for _, fo_players in pairs(_Tenezia_Market_Mission_Server.allowed_players.FO) do
         TriggerClientEvent('esx:showNotification', fo_players, "On vient de lacher un largage !")
         -- TODO : Create Zone
