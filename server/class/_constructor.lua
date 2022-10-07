@@ -9,17 +9,19 @@
 ---@field public id number
 ---@field public type string
 ---@field public items table
+---@field public position table
 ---@field public allowedJobs table
 ---@class _Tenezia_Market_Mission
 _Tenezia_Market_Mission = {}
 _Tenezia_Market_Mission.__index = _Tenezia_Market_Mission
 
 setmetatable(_Tenezia_Market_Mission, {
-    __call = function (_, id, type, items, allowedJobs)
+    __call = function (_, id, type, items, position, allowedJobs)
         local self = setmetatable({}, _Tenezia_Market_Mission)
         self.id = id
         self.type = type
         self.items = items
+        self.position = position
         self.allowedJobs = allowedJobs
         return (self)
     end
