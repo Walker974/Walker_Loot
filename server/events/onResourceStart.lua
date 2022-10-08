@@ -6,10 +6,7 @@
 --]]
 ---@author Walker974
 
----@param resourceName string
-AddEventHandler('onResourceStart', function(resourceName)
-    if ((GetCurrentResourceName()) ~= (resourceName)) then
-        return
-    end
+AddEventHandler('onResourceStart', function()
+    print('Tenezia Market Mission Server is starting...')
     _Tenezia_Market_Mission_Server.InitFunc()
 end)
