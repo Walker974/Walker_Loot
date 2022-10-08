@@ -10,24 +10,28 @@
 local execute_loop = true
 
 _Tenezia_Market_Mission_Server.InitFunc = function()
+    print('Tenezia Market Mission Server is started!')
     ---@param data table
     _Tenezia_Market_Mission_Server.getDate(function(data)
-        if (((data.day) == (('Monday' ) or ('Friday'))) and ((data.hour) == (22))) then
+        if (data.day == ('Monday' or 'Friday') and data.hour == _Tenezia_Market_Mission_Server.Mission.Orgas.hour) then
+            Wait(5000)
             _Tenezia_Market_Mission_Server.StartOrgaMission()
             execute_loop = false
             return
-        elseif (((data.day) == (('Tuesday') or ('Thursday'))) and ((data.hour) == (22))) then
+        elseif (data.day == ('Tuesday' or 'Thursday') and data.hour == _Tenezia_Market_Mission_Server.Mission.Gangs.hour) then
+            Wait(5000)
             _Tenezia_Market_Mission_Server.StartGangMission()
             execute_loop = false
             return
-        elseif (((data.day) == (('Wednesday') or ('Saturday') or ('Sunday')))) then
+        elseif (data.day ~= ('Wednesday' or 'Saturday' or 'Sunday')) then
             print('No mission today !')
             execute_loop = false
             return
-        end
-        while (execute_loop) do
-            Wait(10000)
-            _Tenezia_Market_Mission_Server.InitFunc()
+        else
+            while (execute_loop) do
+                Wait(3600*1000)
+                _Tenezia_Market_Mission_Server.InitFunc()
+            end
         end
     end)
 end
