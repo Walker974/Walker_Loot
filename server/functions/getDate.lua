@@ -10,7 +10,7 @@
 _Tenezia_Market_Mission_Server.getDate = function(cb)
     local date = os.date('*t')
     local day = os.date('%A')
-    local hour = date.hour + 1
+    local hour = date.hour + 2
     local data = {
         day = day,
         hour = hour
