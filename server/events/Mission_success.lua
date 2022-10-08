@@ -42,6 +42,8 @@ AddEventHandler('Tenezia_Market_Mission:Mission:Success', function(id, type)
     if (type == ('orgas')) then
         for _, job in pairs(_Tenezia_Market_Mission_Server.Mission.Orgas.Allowed) do
             if (_player_job == job) then
+                _Tenezia_Market_Mission_Server.Send_Orga_Notif_Finish(id)
+                _Tenezia_Market_Mission_Server.Send_FO_Notif_Finish(id, false)
                 _Tenezia_Market_Mission_Server.FinishMission(_src, id)
                 verify_fo = false
                 break;
@@ -50,6 +52,8 @@ AddEventHandler('Tenezia_Market_Mission:Mission:Success', function(id, type)
     elseif (type == ('gangs')) then
         for _, job in pairs(_Tenezia_Market_Mission_Server.Mission.Gangs.Allowed) do
             if (_player_job == job) then
+                _Tenezia_Market_Mission_Server.Send_Gang_Notif_Finish(id)
+                _Tenezia_Market_Mission_Server.Send_FO_Notif_Finish(id, false)
                 _Tenezia_Market_Mission_Server.FinishMission(_src, id)
                 verify_fo = false
                 break;
@@ -63,9 +67,16 @@ AddEventHandler('Tenezia_Market_Mission:Mission:Success', function(id, type)
         for _, fo_player in pairs(_Tenezia_Market_Mission_Server.Mission.FO) do
             if (_player_job == fo_player) then
                 verify_fo = false
+                _Tenezia_Market_Mission_Server.Send_FO_Notif_Finish(id, true)
+                if (type == ('orgas')) then
+                    _Tenezia_Market_Mission_Server.Send_Orga_Notif_Finish(id)
+                elseif (type == ('gangs')) then
+                    _Tenezia_Market_Mission_Server.Send_Orga_Notif_Finish(id)
+                end
                 _Tenezia_Market_Mission_Server.FinishMission_FO(_src, id)
                 break;
             end
         end
+        return;
     end
 end)
