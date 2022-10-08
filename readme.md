@@ -9,7 +9,9 @@ It's an illegal drop system.
 The forces of order are also warned and have an area close to the drop, and can seize the drop.
 
 - For modifications, you can do this on the file: server/_main.lua
+- To desactivate the startorga command : server/functions/startMission:33
 
+Preview : https://www.youtube.com/watch?v=pOc7yBGkVJk
 My Discord: https://discord.gg/rpBSNP2NBg
 
 -------------------------------------------------
@@ -24,6 +26,8 @@ C'est un système de largage illégal.
 
 Les forces de l'ordre aussi sont prévenue et ont une zone proche du largage , et peuvent saisir le largage.
 
+- Pour supprimer la commande startorga : server/functions/startMission:33
 - Pour les modifications , vous pouvez faire ça sur le fichier : server/_main.lua
 
+Preview : https://www.youtube.com/watch?v=pOc7yBGkVJk
 Mon Discord : https://discord.gg/rpBSNP2NBg
