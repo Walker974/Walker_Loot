@@ -9,7 +9,6 @@
 ---@param mission_id number
 ---@return void
 _Tenezia_Market_Mission_Server.Send_Orga_Notif_Begin = function(mission_id)
-    print('Send_Orga_Notif_Begin')
     if (not (mission_id)) then
         return
     end
@@ -17,10 +16,9 @@ _Tenezia_Market_Mission_Server.Send_Orga_Notif_Begin = function(mission_id)
     if (not (mission)) then
         return
     end
-    print('Send_Orga_Notif_Begin: mission')
     for _, orgas_players in pairs(_Tenezia_Market_Mission_Server.allowed_players.Orgas) do
-        TriggerClientEvent('esx:showNotification', orgas_players, "On vient de lacher un largage !")
-        -- TODO : Create Zone
+        TriggerClientEvent('esx:showNotification', orgas_players, "On vient de lacher un largage")
+        TriggerClientEvent('Tenezia_Market_Mission:Blip:Create', orgas_players, mission_id, mission.position)
     end
 end
 
@@ -35,6 +33,7 @@ _Tenezia_Market_Mission_Server.Send_Orga_Notif_Finish = function(mission_id)
         return
     end
     for _, orgas_players in pairs(_Tenezia_Market_Mission_Server.allowed_players.Orgas) do
-        TriggerClientEvent('esx:showNotification', orgas_players, "Le largage est terminé !")
+        TriggerClientEvent('esx:showNotification', orgas_players, "Le largage a été pris")
+        TriggerClientEvent('Tenezia_Market_Mission:Blip:Delete', orgas_players, mission_id)
     end
 end

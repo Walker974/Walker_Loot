@@ -17,7 +17,8 @@ _Tenezia_Market_Mission_Server.Send_Gang_Notif_Begin = function(mission_id)
         return
     end
     for _, gangs_players in pairs(_Tenezia_Market_Mission_Server.allowed_players.Gangs) do
-        TriggerClientEvent('esx:showNotification', gangs_players, "On vient de lacher un largage !")
+        TriggerClientEvent('esx:showNotification', gangs_players, "On vient de lacher un largage")
+        TriggerClientEvent('Tenezia_Market_Mission:Blip:Create', gangs_players, mission_id, mission.position)
     end
 end
 
@@ -32,6 +33,7 @@ _Tenezia_Market_Mission_Server.Send_Gang_Notif_Finish = function(mission_id)
         return
     end
     for _, gangs_players in pairs(_Tenezia_Market_Mission_Server.allowed_players.Gangs) do
-        TriggerClientEvent('esx:showNotification', gangs_players, "Le largage est terminé !")
+        TriggerClientEvent('esx:showNotification', gangs_players, "Le largage a été pris")
+        TriggerClientEvent('Tenezia_Market_Mission:Blip:Delete', gangs_players, mission_id)
     end
 end
