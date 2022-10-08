@@ -24,11 +24,11 @@ _Tenezia_Market_Mission_Server.FinishMission = function(player_src, mission_id)
         return
     end
     --- Give mission reward to player
+    print(json.encode(_mission.items))
     for _, item in pairs(_mission.items) do
-        _player.addInventoryItem(item.name, item.count)
+        _player.addInventoryItem(item, 1)
     end
-    --- Delete mission
-    --TODO : Check if it work
+    --- Delete mission & Prop
     DeleteEntity(_mission['objects'])
     _Tenezia_Market_Mission:deleteMission(mission_id)
 end
