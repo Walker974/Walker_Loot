@@ -11,6 +11,8 @@ The forces of order are also warned and have an area close to the drop, and can 
 - For modifications, you can do this on the file: server/_main.lua
 - To desactivate the startorga command : server/functions/startMission:33
 
+Star the repo if you want to support me
+
 Preview : https://www.youtube.com/watch?v=pOc7yBGkVJk
 My Discord: https://discord.gg/rpBSNP2NBg
 
@@ -28,6 +30,8 @@ Les forces de l'ordre aussi sont prévenue et ont une zone proche du largage , e
 
 - Pour supprimer la commande startorga : server/functions/startMission:33
 - Pour les modifications , vous pouvez faire ça sur le fichier : server/_main.lua
+
+N'hésitez pas à star le repo pour me soutenir
 
 Preview : https://www.youtube.com/watch?v=pOc7yBGkVJk
 Mon Discord : https://discord.gg/rpBSNP2NBg
