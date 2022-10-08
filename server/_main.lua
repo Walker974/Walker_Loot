@@ -14,34 +14,38 @@ _Tenezia_Market_Mission_Server = {
     },
     zones = {
         Orgas = {
-            {x = 0.0, y = 0.0, z = 0.0},
-            {x = 125.0, y = 10.0, z = 12.0},
-            {x = 18.0, y = 10.0, z = 12.0},
-            {x = -15.27, y = 37.63, z = 71.82}
+            {x = 116.5, y = -594.9, z = 42.85},
+            {x = -15.27, y = 37.63, z = 70.40},
+            {x = 575.8, y = -1425.4, z = 19.0}
         },
         Gangs = {
-            {x = 0.0, y = 0.0, z = 0.0},
-            {x = 125.0, y = 10.0, z = 12.0},
-            {x = 18.0, y = 10.0, z = 12.0}
+             {x = 116.5, y = -594.9, z = 42.85},
+             {x = -15.27, y = 37.63, z = 70.40},
+             {x = 575.8, y = -1425.4, z = 19.0}
         },
     },
     Mission = {
+        Prop_name = 'prop_boxpile_07d',
         Orgas = {
+            hour = 22,
             Allowed = {'mafia', 'cartel'},
             Rewards = {
-                [1] = {'bread', 'water'},
-                [2] = {'burger', 'bandage'},
-                [3] = {'coke', 'weed'}
+                [1] = {'advancedrifle', 'appistol'},
+                [2] = {'ball', 'bird_crap_ammo'},
+                [3] = {'compactrifle', 'dbshotgun'}
             }
         },
         Gangs = {
+            hour = 22,
             Allowed = {'ballas', 'vagos'},
             Rewards = {
-                [1] = {'bread', 'water'},
-                [2] = {'burger', 'bandage'},
-                [3] = {'coke', 'weed'}
+                [1] = {'advancedrifle', 'appistol'},
+                [2] = {'ball', 'bird_crap_ammo'},
+                [3] = {'compactrifle', 'dbshotgun'}
             }
         },
-        FO = {'police', 'fbi'}
+        FO = {'police', 'fbi'},
+        default_radius = 100.0,
+        Wait_interval = 5000
     }
 }
