@@ -6,12 +6,15 @@
 --]]
 ---@author Walker974
 
-RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
     if (not (job)) then
-        print('Error: job is nil')
-        return;
+        print('esx:setJob: job is nil')
+        return
     end
-    TriggerEvent('playerDropped')
-    TriggerEvent('Tenzia_marketmission:newPlayer', source)
+    local player = PlayerId()
+    if (not (player)) then
+        print('esx:setJob: player is nil')
+        return
+    end
+    TriggerServerEvent('Tenzia_marketmission:receive_newJob', GetPlayerServerId(player), job)
 end)

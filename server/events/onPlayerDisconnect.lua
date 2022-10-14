@@ -10,6 +10,10 @@ local continue = true
 local verify_fo = false
 
 AddEventHandler('playerDropped', function()
+    _Tenezia_Market_Mission_Server.deletePlayer()
+end)
+
+_Tenezia_Market_Mission_Server.deletePlayer = function()
     --- Get Player Source
     local _src <const> = source
     if (not (_src)) then
@@ -47,4 +51,4 @@ AddEventHandler('playerDropped', function()
             end
         end
     end
-end)
+end

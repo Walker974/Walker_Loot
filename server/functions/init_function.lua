@@ -19,7 +19,6 @@ _Tenezia_Market_Mission_Server.InitFunc = function()
             execute_loop = false
             return
         elseif ((data.day == 'Tuesday') or (data.day == 'Thursday') and (data.hour == _Tenezia_Market_Mission_Server.Mission.Gangs.hour)) then
-            print('cc')
             Wait(5000)
             _Tenezia_Market_Mission_Server.StartGangMission()
             execute_loop = false
