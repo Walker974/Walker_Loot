@@ -6,6 +6,7 @@
 --]]
 ---@author Walker974
 
+RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
     if (not (job)) then
         print('esx:setJob: job is nil')
