@@ -8,6 +8,7 @@
 
 local continue = true
 local verify_fo = false
+
 AddEventHandler('playerDropped', function()
     --- Get Player Source
     local _src <const> = source
