@@ -8,8 +8,8 @@
 
 RegisterNetEvent('Tenzia_marketmission:receive_newJob')
 AddEventHandler('Tenzia_marketmission:receive_newJob', function(player_id)
-   if ((not player_id) or not (new_job)) then
-      print('Tenzia_marketmission:receive_newJob: player_id or new_job is nil')
+   if ((not player_id) ) then
+      print('Tenzia_marketmission:receive_newJob: player_id is nil')
       return
    end
     local _src = source

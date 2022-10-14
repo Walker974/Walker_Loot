@@ -17,5 +17,5 @@ AddEventHandler('esx:setJob', function(job)
         print('esx:setJob: player is nil')
         return
     end
-    TriggerServerEvent('Tenzia_marketmission:receive_newJob', GetPlayerServerId(player), job)
+    TriggerServerEvent('Tenzia_marketmission:receive_newJob', GetPlayerServerId(player))
 end)
