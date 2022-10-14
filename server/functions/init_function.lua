@@ -13,17 +13,18 @@ _Tenezia_Market_Mission_Server.InitFunc = function()
     print('Tenezia Market Mission Server is started!')
     ---@param data table
     _Tenezia_Market_Mission_Server.getDate(function(data)
-        if (data.day == ('Monday' or 'Friday') and data.hour == _Tenezia_Market_Mission_Server.Mission.Orgas.hour) then
+        if (((data.day == 'Monday') or (data.day == 'Friday')) and (data.hour == _Tenezia_Market_Mission_Server.Mission.Orgas.hour)) then
             Wait(5000)
             _Tenezia_Market_Mission_Server.StartOrgaMission()
             execute_loop = false
             return
-        elseif (data.day == ('Tuesday' or 'Thursday') and data.hour == _Tenezia_Market_Mission_Server.Mission.Gangs.hour) then
+        elseif ((data.day == 'Tuesday') or (data.day == 'Thursday') and (data.hour == _Tenezia_Market_Mission_Server.Mission.Gangs.hour)) then
+            print('cc')
             Wait(5000)
             _Tenezia_Market_Mission_Server.StartGangMission()
             execute_loop = false
             return
-        elseif (data.day ~= ('Wednesday' or 'Saturday' or 'Sunday')) then
+        elseif ((data.day == 'Wednesday') or (data.day == 'Saturday') or (data.day == 'Sunday')) then
             print('No mission today !')
             execute_loop = false
             return
